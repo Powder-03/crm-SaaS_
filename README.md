@@ -22,6 +22,12 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 # Install dependencies
 pip install -r requirements.txt
 
+# Set up environment variables
+# Create a .env file in the crm directory with the following variables:
+# STRIPE_API_KEY=your_stripe_api_key_here
+# SECRET_KEY=your_django_secret_key_here
+# DEBUG=True
+
 # Run migrations
 python manage.py migrate
 
@@ -57,6 +63,20 @@ npm start
 - **Database**: SQLite (development), PostgreSQL (production)
 - **Authentication**: JSON Web Tokens (JWT)
 - **Payment Processing**: Stripe
+
+## Environment Variables
+
+For security reasons, sensitive information like API keys should be stored in environment variables, not in the code. Create a `.env` file in the root of the project with the following variables:
+
+```
+# Stripe API keys (required for payment processing)
+STRIPE_API_KEY=sk_test_your_test_key_here
+STRIPE_PUBLISHABLE_KEY=pk_test_your_publishable_key_here
+
+# Django settings
+SECRET_KEY=your_django_secret_key
+DEBUG=True
+```
 
 ## Contributing
 
